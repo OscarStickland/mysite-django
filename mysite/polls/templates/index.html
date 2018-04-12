@@ -1,9 +1,17 @@
 <html>
-<head><title></title></head>
-
-<body>
-
-{{ content }}
-
-</body>
+    <head>
+        <title>Poll Index!</title>
+    </head>
+    <body>
+        <h2>Hi</h2>
+        {% if latest_question_list %}
+            <ul>
+                {% for question in latest_question_list %}
+                    <li><a href="/polls/{{ question.id }}/">{{ question.question_text}}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No polls are availalbe.</p>
+        {% endif %}
+    </body>
 </html>
